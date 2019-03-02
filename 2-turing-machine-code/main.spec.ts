@@ -1,5 +1,6 @@
 import 'jasmine';
-import {SECOND_STATES, startTuringMachine} from './main';
+import {SECOND_STATES} from './main';
+import {startTuringMachine} from './turing-machine';
 
 describe('Turing machine', () => {
     // describe('First task', () => {
