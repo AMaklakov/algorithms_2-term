@@ -1,9 +1,8 @@
 import Big from 'big.js'
-import * as superb from 'superb'
 import { Thing } from './thing'
 
 export class Pack {
-  name: string = superb.random()
+  name: string = Math.random().toString(36).substring(2)
   size = new Big(1)
   remainingSpace = new Big(1)
   things: Thing[] = []

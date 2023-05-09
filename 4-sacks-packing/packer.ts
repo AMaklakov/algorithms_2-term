@@ -27,7 +27,6 @@ export class Packer {
     this.packs.forEach((pack, index) => {
       console.log(`Pack number ${index + 1}`)
       pack.print()
-      console.log('-------------------------------------------------------------')
     })
 
     console.log(
