@@ -1,13 +1,13 @@
 export enum MoveCarriageEnum {
-    TO_LEFT = '<',
-    TO_RIGHT = '>',
-    DO_NOT_MOVE = '|'
+  TO_LEFT = '<',
+  TO_RIGHT = '>',
+  DO_NOT_MOVE = '|',
 }
 
 export function replaceChar(str: string, position: number, char: string) {
-    const arr = str.split('');
+  const arr = str.split('')
 
-    arr[position] = char;
+  arr[position] = char
 
-    return arr.join('');
+  return arr.join('')
 }

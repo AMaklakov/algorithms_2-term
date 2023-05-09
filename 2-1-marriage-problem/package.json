@@ -1,19 +1,19 @@
 {
-    "name": "2-turing-machine-code",
-    "version": "1.0.0",
-    "description": "",
-    "main": "main.ts",
-    "scripts": {
-        "test": "ts-node node_modules/jasmine/bin/jasmine main.spec.ts",
-        "start": "ts-node main.ts"
-    },
-    "author": "A.Maklakov",
-    "license": "ISC",
-    "devDependencies": {
-        "@types/jasmine": "^3.3.9",
-        "@types/node": "^11.9.5",
-        "jasmine": "^3.3.1",
-        "ts-node": "^8.0.2",
-        "typescript": "^3.4.0-dev.20190222"
-    }
+  "name": "2-turing-machine-code",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.ts",
+  "scripts": {
+    "test": "ts-node node_modules/jasmine/bin/jasmine main.spec.ts",
+    "start": "ts-node main.ts"
+  },
+  "author": "A.Maklakov",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jasmine": "^3.3.9",
+    "@types/node": "^11.9.5",
+    "jasmine": "^3.3.1",
+    "ts-node": "^8.0.2",
+    "typescript": "^3.4.0-dev.20190222"
+  }
 }
