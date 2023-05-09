@@ -3,11 +3,7 @@ import { Graph } from './graph'
 describe('DFS', () => {
   it('should be ok with 1', () => {
     const graph = new Graph([[0]])
-
-    const firstComponent = graph.dfs(0)
-    for (let i = 0; i < firstComponent.length; i++) {
-      expect(firstComponent[i]).toEqual([0][i])
-    }
+    expect(graph.dfs(0)).toEqual([0])
   })
 
   it('should be ok with 2 - connected', () => {
@@ -15,11 +11,7 @@ describe('DFS', () => {
       [0, 1],
       [1, 0],
     ])
-
-    const firstComponent = graph.dfs(1)
-    for (let i = 0; i < firstComponent.length; i++) {
-      expect(firstComponent[i]).toEqual([0, 1][i])
-    }
+    expect(graph.dfs(1)).toEqual([0, 1])
   })
 
   it('should be ok with 2 - disconnected', () => {
@@ -27,16 +19,8 @@ describe('DFS', () => {
       [0, 0],
       [0, 0],
     ])
-
-    const firstComponent = graph.dfs(0)
-    for (let i = 0; i < firstComponent.length; i++) {
-      expect(firstComponent[i]).toEqual([0][i])
-    }
-
-    const secondComponent = graph.dfs(1)
-    for (let i = 0; i < secondComponent.length; i++) {
-      expect(secondComponent[i]).toEqual([1][i])
-    }
+    expect(graph.dfs(0)).toEqual([0])
+    expect(graph.dfs(1)).toEqual([1])
   })
 
   it('should be ok with 3 - connected', () => {
@@ -45,11 +29,7 @@ describe('DFS', () => {
       [1, 0, 1],
       [1, 1, 0],
     ])
-
-    const firstComponent = graph.dfs(1)
-    for (let i = 0; i < firstComponent.length; i++) {
-      expect(firstComponent[i]).toEqual([0, 1, 2][i])
-    }
+    expect(graph.dfs(1)).toEqual([0, 1, 2])
   })
 
   it('should be ok with 4', () => {
@@ -59,11 +39,7 @@ describe('DFS', () => {
       [1, 1, 0, 0],
       [0, 0, 0, 0],
     ])
-
-    const firstComponent = graph.dfs(2)
-    for (let i = 0; i < firstComponent.length; i++) {
-      expect(firstComponent[i]).toEqual([0, 1, 2][i])
-    }
+    expect(graph.dfs(2)).toEqual([0, 1, 2])
   })
 
   it('should be ok 5', () => {
@@ -74,16 +50,8 @@ describe('DFS', () => {
       [0, 0, 0, 0, 1],
       [0, 0, 0, 1, 0],
     ])
-
-    const firstComponent = graph.dfs(0)
-    for (let i = 0; i < firstComponent.length; i++) {
-      expect(firstComponent[i]).toEqual([0, 1, 2][i])
-    }
-
-    const secondComponent = graph.dfs(3)
-    for (let i = 0; i < secondComponent.length; i++) {
-      expect(secondComponent[i]).toEqual([3, 4][i])
-    }
+    expect(graph.dfs(0)).toEqual([0, 1, 2])
+    expect(graph.dfs(3)).toEqual([3, 4])
   })
 
   it('should be ok 11', () => {
@@ -100,11 +68,6 @@ describe('DFS', () => {
       [1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1], // 9 - 0, 6, 7, 10
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0], // 10 - 9
     ])
-
-    const firstComponent = graph.dfs(0)
-    console.log('f ->', firstComponent)
-    for (let i = 0; i < firstComponent.length; i++) {
-      expect(firstComponent[i]).toEqual([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10][i])
-    }
+    expect(graph.dfs(0)).toEqual([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
   })
 })

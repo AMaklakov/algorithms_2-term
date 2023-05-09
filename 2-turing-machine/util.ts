@@ -1,4 +1,5 @@
-export enum MoveCarriageEnum {
+// MoveCarriageEnum
+export enum MCE {
   TO_LEFT = '<',
   TO_RIGHT = '>',
   DO_NOT_MOVE = '|',

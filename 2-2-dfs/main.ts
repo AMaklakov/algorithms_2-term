@@ -18,5 +18,5 @@ export function inputGraph(): Graph {
   ])
 }
 
-const graph = inputGraph()
-console.log(graph.dfs(0))
+// const graph = inputGraph()
+// console.log(graph.dfs(0))

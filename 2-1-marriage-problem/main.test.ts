@@ -1,4 +1,3 @@
-import 'jasmine'
 import { stableMarriage } from './main'
 
 describe('Stable Marriage Problem', () => {
@@ -56,7 +55,7 @@ describe('Stable Marriage Problem', () => {
     expect(stableMarriage(MEN, WOMEN)).toEqual([0, 1, 3, 2])
   })
 
-  fit('should be ok with 5x5', () => {
+  it('should be ok with 5x5', () => {
     const MEN: { [key: number]: number[] } = {
       0: [3, 1, 2, 0, 4],
       1: [4, 2, 1, 0, 3],

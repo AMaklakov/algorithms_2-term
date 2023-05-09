@@ -2,26 +2,25 @@ export function stableMarriage(
   MEN: { [key: number]: number[] },
   WOMEN: { [key: number]: number[] }
 ): Array<boolean | number> {
-  const menMarriedArray: Array<boolean | number> = Object.keys(MEN).map(() => false)
-  const isWomenVisitedList: boolean[][] = Object.keys(MEN).map((key) => MEN[key].map(() => false))
-
-  const womenMarriedArray: Array<boolean | number> = Object.keys(WOMEN).map(() => false)
+  const men: Array<boolean | number> = Object.keys(MEN).map(() => false)
+  const women: Array<boolean | number> = Object.keys(WOMEN).map(() => false)
+  const womanVisitedList: boolean[][] = Object.keys(MEN).map((key) => MEN[key].map(() => false))
 
   let iteration = 1
 
-  // while we has not married men
-  while (menMarriedArray.some((hasWoman) => hasWoman === false)) {
-    console.log('================= iteration ->', iteration++)
-    console.log('MEN:', JSON.stringify(menMarriedArray))
-    console.log('WOMEN:', JSON.stringify(womenMarriedArray))
+  // while we have not married men
+  while (men.some((hasWoman) => hasWoman === false)) {
+    // console.log('================= iteration ->', iteration++)
+    // console.log('MEN:', JSON.stringify(men))
+    // console.log('WOMEN:', JSON.stringify(women))
 
-    for (let i = 0; i < menMarriedArray.length; i++) {
-      if (menMarriedArray[i] !== false) {
+    for (let i = 0; i < men.length; i++) {
+      if (men[i] !== false) {
         continue
       }
 
       // if 'i' man is not married
-      const visited = isWomenVisitedList[i]
+      const visited = womanVisitedList[i]
       const womanIndex = MEN[i].find((woman) => !visited[woman])
 
       makeOffer(womanIndex, i)
@@ -33,46 +32,46 @@ export function stableMarriage(
     }
   }
 
-  function makeOffer(womanIndex: number, manIndex: number) {
-    if (womenMarriedArray[womanIndex] === false) {
-      return acceptOffer(womanIndex, manIndex)
+  function makeOffer(wIndex: number, mIndex: number) {
+    if (women[wIndex] === false) {
+      return acceptOffer(wIndex, mIndex)
     }
 
-    const woman = WOMEN[womanIndex]
-    const newHusbandIndex = woman.indexOf(manIndex)
-    const currentHusbandIndex = woman.indexOf(womenMarriedArray[womanIndex] as number)
+    const woman = WOMEN[wIndex]
+    const newHusbandIndex = woman.indexOf(mIndex)
+    const currentHusbandIndex = woman.indexOf(women[wIndex] as number)
 
     if (newHusbandIndex < currentHusbandIndex) {
-      return acceptOffer(womanIndex, manIndex)
+      return acceptOffer(wIndex, mIndex)
     }
   }
 
   function acceptOffer(womanIndex: number, manIndex: number) {
-    if (womenMarriedArray[womanIndex] !== false) {
-      menMarriedArray[womenMarriedArray[womanIndex] as number] = false
+    if (women[womanIndex] !== false) {
+      men[women[womanIndex] as number] = false
     }
 
-    womenMarriedArray[womanIndex] = manIndex
-    menMarriedArray[manIndex] = womanIndex
+    women[womanIndex] = manIndex
+    men[manIndex] = womanIndex
   }
 
-  return menMarriedArray
+  return men
 }
 
 // ============ START
 
 // const MEN: { [key: number]: number[] } = {
-//     0: [0, 1, 2, 3],
-//     1: [1, 0, 3, 2],
-//     2: [3, 2, 1, 0],
-//     3: [0, 2, 3, 1]
-// };
+//   0: [0, 1, 2, 3],
+//   1: [1, 0, 3, 2],
+//   2: [3, 2, 1, 0],
+//   3: [0, 2, 3, 1],
+// }
 //
 // const WOMEN: { [key: number]: number[] } = {
-//     0: [1, 2, 0, 3],
-//     1: [3, 2, 1, 0],
-//     2: [0, 1, 3, 2],
-//     3: [0, 2, 1, 3]
-// };
+//   0: [1, 2, 0, 3],
+//   1: [3, 2, 1, 0],
+//   2: [0, 1, 3, 2],
+//   3: [0, 2, 1, 3],
+// }
 //
-// stableMarriage(MEN, WOMEN);
+// stableMarriage(MEN, WOMEN)
